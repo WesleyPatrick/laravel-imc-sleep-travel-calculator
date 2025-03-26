@@ -1,0 +1,93 @@
+:root {
+    --primary: #ff2d20;
+    --primary-dark: #db2619;
+    --primary-light: #ff5b4f;
+    --secondary: #18181b;
+    --gradient-1: #ff2d20;
+    --gradient-2: #ff8063;
+    --text: #18181b;
+    --text-light: #71717a;
+    --background: #f4f4f5;
+    --white: #ffffff;
+    --border: #e4e4e7;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.text-content {
+    margin-bottom: 2rem;
+}
+
+.text-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.text-content p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.btn-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
+    color: var(--white);
+    padding: 0.875rem 1.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(255, 45, 32, 0.3);
+}
+
+h1 {
+    background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.875rem;
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+} 

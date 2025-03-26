@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
 
-<head>
-    <title>Resultado do Cálculo de Consumo</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+@section('title', 'Resultado do Cálculo')
 
-<body>
-    <h2>Resultado do Cálculo de Consumo</h2>
+@section('content')
+<h1>Resultado do Cálculo</h1>
 
-    <div style="background-color: #e8f5e9; padding: 20px; margin: 20px 0;">
-        <h3>O valor total do gasto será de:</h3>
-        <p>{{ $viagem->combustivel }}: R$ {{ $viagem->calcularGasto() }}</p>
-    </div>
+<div class="result-box">
+    <h2>O valor total do gasto será de:</h2>
+    <p class="result-value">
+        {{ $viagem->combustivel }}: <strong>R$ {{ $viagem->calcularGasto() }}</strong>
+    </p>
+</div>
 
-    <a href="{{ route('viagem.index') }}" class="button">Voltar</a>
-</body>
-
-</html>
+<div class="text-center">
+    <a href="{{ route('viagem.index') }}" class="btn">Calcular Novamente</a>
+</div>
+@endsection

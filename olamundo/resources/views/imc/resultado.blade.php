@@ -1,33 +1,35 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
 
-<head>
-    <title>Resultado análise IMC</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+@section('title', 'Resultado IMC')
 
-<body>
-    <h1>Resultado análise IMC e Sono</h1>
+@section('content')
+<h1>Resultado da Análise</h1>
 
-    <p>
-        {{ $imc->nome }}, você tem {{ $imc->idade() }} anos,
-        sua altura é {{ $imc->altura }}m,
-        seu peso é {{ $imc->peso }}kg
-        e seu IMC é: {{ $imc->calcularImc() }}.
-    </p>
+<div class="result-box">
+    <div class="text-content">
+        <p>
+            <strong>{{ $imc->nome }}</strong>, você tem {{ $imc->idade() }} anos,
+            sua altura é {{ $imc->altura }}m,
+            seu peso é {{ $imc->peso }}kg
+            e seu IMC é: <strong>{{ $imc->calcularImc() }}</strong>.
+        </p>
 
-    <p>
-        Pelo cálculo do IMC você está classificado como "{{ $imc->classificacaoImc() }}"
-    </p>
+        <p>
+            Classificação: <strong>{{ $imc->classificacaoImc() }}</strong>
+        </p>
+    </div>
 
-    <p>
-        Quanto ao seu sono: Você dorme em média {{ $imc->horas_sono }} horas por dia.
-        Para sua idade, o ideal seria dormir {{ $imc->avaliarSono()['ideal'] }}.
-        Seu padrão de sono está {{ $imc->avaliarSono()['status'] }}.
-    </p>
+    <div class="sleep-analysis">
+        <h3>Análise do Sono</h3>
+        <p>
+            Você dorme em média {{ $imc->horas_sono }} horas por dia.<br>
+            Para sua idade, o ideal seria dormir {{ $imc->avaliarSono()['ideal'] }}.<br>
+            Seu padrão de sono está <strong>{{ $imc->avaliarSono()['status'] }}</strong>.
+        </p>
+    </div>
+</div>
 
-    <a href="{{ route('imc.index') }}">Voltar</a>
-</body>
-
-</html>
+<div class="btn-container">
+    <a href="{{ route('imc.index') }}" class="btn">Calcular Novamente</a>
+</div>
+@endsection

@@ -1,46 +1,45 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
 
-<head>
-    <title>Cálculo de Gasto em Viagem</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+@section('title', 'Calculadora de Viagem')
 
-<body>
-    <h2>Instruções</h2>
-    <p>Esta aplicação tem como finalidade demonstrar os valores que serão gastos com combustível durante uma viagem, com base no consumo do seu veículo e com a distância determinada por você!</p>
+@section('content')
+<h1>Calculadora de Viagem</h1>
 
-    <h2>Cálculo do valor (R$) do consumo</h2>
+<p class="instructions">
+    Esta aplicação tem como finalidade demonstrar os valores que serão gastos com combustível durante uma viagem,
+    com base no consumo do seu veículo e com a distância determinada por você!
+</p>
 
+<div class="form-container">
     <form method="POST" action="{{ route('viagem.calcular') }}">
         @csrf
-        <div>
-            <label>Combustível:</label>
-            <select name="combustivel" required>
-                <option value="Gasolina">Gasolina</option>
-                <option value="Etanol">Etanol</option>
-                <option value="Diesel">Diesel</option>
-            </select>
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Combustível:</label>
+                <select name="combustivel" required>
+                    <option value="Gasolina">Gasolina</option>
+                    <option value="Etanol">Etanol</option>
+                    <option value="Diesel">Diesel</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Valor do combustível (R$):</label>
+                <input type="number" name="valor" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Distância (km):</label>
+                <input type="number" name="distancia" required>
+            </div>
+
+            <div class="form-group">
+                <label>Consumo do veículo (km/l):</label>
+                <input type="number" name="consumo" step="0.1" required>
+            </div>
         </div>
 
-        <div>
-            <label>Valor do combustível (R$):</label>
-            <input type="number" name="valor" step="0.01" required>
-        </div>
-
-        <div>
-            <label>Distância em quilômetros a ser percorrida:</label>
-            <input type="number" name="distancia" required>
-        </div>
-
-        <div>
-            <label>Consumo de combustível do veículo (km/l):</label>
-            <input type="number" name="consumo" step="0.1" required>
-        </div>
-
-        <button type="submit">Calcular</button>
+        <button type="submit" class="btn">Calcular Gasto</button>
     </form>
-</body>
-
-</html>
+</div>
+@endsection
